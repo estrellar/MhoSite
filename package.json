@@ -1,0 +1,25 @@
+{
+  "name": "mhosciences",
+  "version": "1.0.0",
+  "description": "Website for Mho Sciences",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Rodrigo Estrella",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "handlebars": "^4.0.11",
+    "jade": "^1.11.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-inject": "^4.3.0",
+    "gulp-nodemon": "^2.2.1",
+    "wiredep": "^4.0.0"
+  }
+}

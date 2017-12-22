@@ -1,0 +1,37 @@
+{
+    "name": "mhosciences",
+    "description": "Website for Mho Sciences",
+    "main": "index.js",
+    "authors": [
+    "Rodrigo Estrella"
+  ],
+    "license": "ISC",
+    "homepage": "",
+    "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+    "dependencies": {
+        "bootstrap": "^3.3.7",
+        "font-awesome": "^4.7.0"
+    },
+    "overrides": {
+        "boostrap": {
+            "main": [
+                "dist/js/boostrap.js",
+                "dist/css/bootstrap.css",
+                "less/bootstrap.less"
+            ]
+        },
+        "font-awesome": {
+            "main": [
+                "less/font-awesome.less",
+                "css/font-awesome.min.css",
+                "scss/font-awesome.scss"
+            ]
+        }
+    }
+}
