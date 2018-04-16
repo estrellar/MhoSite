@@ -2,86 +2,270 @@
 <html lang="en">
 
 <head>
-    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- bower:css -->
+    <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
-    <!-- endbower -->
-    <!-- bower:js -->
+
     <script src="/lib/jquery/dist/jquery.js"></script>
     <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <!-- endbower -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="/public/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="/public/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="/public/css/bootstrap-reboot.css">
-    <link rel="stylesheet" href="/public/css/bootstrap-reboot.min.css">
+    <script src="https://tympanus.net/Development/AnimatedHeaderBackgrounds/js/TweenLite.min.js"></script>
+    <script src="https://tympanus.net/Development/AnimatedHeaderBackgrounds/js/EasePack.min.js"></script>
+    <script src="https://tympanus.net/Development/AnimatedHeaderBackgrounds/js/rAF.js"></script>
     <link rel="stylesheet" href="/public/css/bootstrap.css">
     <link rel="stylesheet" href="/public/css/bootstrap.min.css">
-    <!-- endinject -->
-    <!-- inject:js -->
-    <script src="/public/js/bootstrap.bundle.js"></script>
-    <script src="/public/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/css/site.css">
     <script src="/public/js/bootstrap.js"></script>
     <script src="/public/js/bootstrap.min.js"></script>
-    <!-- endinject -->
+    <link href='https://fonts.googleapis.com/css?family=Warnes' rel='stylesheet'>
+
 </head>
 
+<!-- width="1366" height="340"-->
+
 <body>
-
-    <!-- default boostrap navbar -->
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <a href="#" class="navbar-brand"><img src="/images/logo.png" height="20" width="100"></a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Projects</a></li>
-
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-    <!-- About -->
-    <div class="col-sm-12 col-lg-12">
-        <p class="text-centered col-sm-11">
-            Mho Sciences is a group of students who like to work on new, interesting and challenging projects together. Our team is made up of passionate individuals whose skills and hobbies allow us to develop projects with Biomedical, Wearable, Robotics, Aerospace, Environmental and many other applications. We work in collaboration with or for other departments and customers to develop a custom solution for their problem, from a smart walker that monitors stability to a satellite that tracks the Earth's vegetation set to be launched late 2018.
-        </p>
+    <div id="background" class="background">
+        <canvas id="demo-canvas"></canvas>
     </div>
-    <!-- section for services -->
-    <div id="services" class="col-sm-12 col-lg-12">
-        <h2 class="col-sm-offset-5 col-lg-offset-5">Services</h2>
-        <div class="col-sm-12">
 
-        </div>
-        <button class=" btn btn-lg col-sm-offset-5 col-lg-offset-5">Work With Us!</button>
-    </div>
-    <img src="logo.png" />
-
-    <!-- section for projects -->
     <div>
-        <ul>
 
-        </ul>
+        <div>
+            <header>
+                <% include partials/header %>
+            </header>
+            <!-- section for landing -->
+            <!--
+            <div id="landing" style="z-index:-1;">
+                <img src="images/tech.png" style="width:1433px;">
+            </div>
+-->
+            <div class="body-content">
+                <!-- About -->
+                <div id="about">
+                    <p class="text-center col-xs-offset-1 col-xs-10">
+                        We are a group of freelance Computer Science and Electrical Engineers with a passion for solving problems and building. Our interests have pushed us to develop devices and solutions for a variety of applications and clients. We have built Art pieces, a CubeSat, a Smart Walker and are currently developing a Smart Watch, a robot and biometric clothing. Below you will find a list of links to some of our projects and the application/reason it was developed.
+                    </p>
+                </div>
+
+                <div id="projects">
+                    <br/>
+                    <!-- section for projects -->
+                    <% include partials/projects %>
+                </div>
+
+                <div id="services">
+                    <h2 class="col-xs-12 text-center">Services</h2>
+
+                    <div class="text-center">
+                        <button class="red btn btn-lg">
+                            Work With Us!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <footer>
-
-    </footer>
 
 </body>
+
+<script type="text/javascript">
+    (function() {
+
+        var width, height, largeHeader, canvas, ctx, points, target, animateHeader = true;
+
+        // Main
+        initHeader();
+        initAnimation();
+        addListeners();
+
+        function initHeader() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            target = {
+                x: width / 2,
+                y: height / 2
+            };
+
+            largeHeader = document.getElementById('background');
+            largeHeader.style.height = height + 'px';
+
+            canvas = document.getElementById('demo-canvas');
+            canvas.width = width;
+            canvas.height = height - 10;
+            ctx = canvas.getContext('2d');
+
+            // create points
+            points = [];
+            for (var x = 0; x < width; x = x + width / 20) {
+                for (var y = 0; y < height; y = y + height / 20) {
+                    var px = x + Math.random() * width / 20;
+                    var py = y + Math.random() * height / 20;
+                    var p = {
+                        x: px,
+                        originX: px,
+                        y: py,
+                        originY: py
+                    };
+                    points.push(p);
+                }
+            }
+
+            // for each point find the 5 closest points
+            for (var i = 0; i < points.length; i++) {
+                var closest = [];
+                var p1 = points[i];
+                for (var j = 0; j < points.length; j++) {
+                    var p2 = points[j]
+                    if (!(p1 == p2)) {
+                        var placed = false;
+                        for (var k = 0; k < 5; k++) {
+                            if (!placed) {
+                                if (closest[k] == undefined) {
+                                    closest[k] = p2;
+                                    placed = true;
+                                }
+                            }
+                        }
+
+                        for (var k = 0; k < 5; k++) {
+                            if (!placed) {
+                                if (getDistance(p1, p2) < getDistance(p1, closest[k])) {
+                                    closest[k] = p2;
+                                    placed = true;
+                                }
+                            }
+                        }
+                    }
+                }
+                p1.closest = closest;
+            }
+
+            // assign a circle to each point
+            for (var i in points) {
+                var c = new Circle(points[i], 2 + Math.random() * 2, 'rgba(255,255,255,0.3)');
+                points[i].circle = c;
+            }
+        }
+
+        // Event handling
+        function addListeners() {
+            if (!('ontouchstart' in window)) {
+                window.addEventListener('mousemove', mouseMove);
+            }
+            window.addEventListener('scroll', scrollCheck);
+            window.addEventListener('resize', resize);
+        }
+
+        function mouseMove(e) {
+            var posx = posy = 0;
+            if (e.pageX || e.pageY) {
+                posx = e.pageX;
+                posy = e.pageY;
+            } else if (e.clientX || e.clientY) {
+                posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+                posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+            }
+            target.x = posx;
+            target.y = posy;
+        }
+
+        function scrollCheck() {
+            if (document.body.scrollTop > height) animateHeader = false;
+            else animateHeader = true;
+        }
+
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            largeHeader.style.height = height + 'px';
+            canvas.width = width;
+            canvas.height = height;
+        }
+
+        // animation
+        function initAnimation() {
+            animate();
+            for (var i in points) {
+                shiftPoint(points[i]);
+            }
+        }
+
+        function animate() {
+            if (animateHeader) {
+                ctx.clearRect(0, 0, width, height);
+                for (var i in points) {
+                    // detect points in range
+                    if (Math.abs(getDistance(target, points[i])) < 4000) {
+                        points[i].active = 0.3;
+                        points[i].circle.active = 0.6;
+                    } else if (Math.abs(getDistance(target, points[i])) < 20000) {
+                        points[i].active = 0.1;
+                        points[i].circle.active = 0.3;
+                    } else if (Math.abs(getDistance(target, points[i])) < 40000) {
+                        points[i].active = 0.02;
+                        points[i].circle.active = 0.1;
+                    } else {
+                        points[i].active = 0;
+                        points[i].circle.active = 0;
+                    }
+
+                    drawLines(points[i]);
+                    points[i].circle.draw();
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        function shiftPoint(p) {
+            TweenLite.to(p, 1 + 1 * Math.random(), {
+                x: p.originX - 50 + Math.random() * 100,
+                y: p.originY - 50 + Math.random() * 100,
+                ease: Circ.easeInOut,
+                onComplete: function() {
+                    shiftPoint(p);
+                }
+            });
+        }
+
+        // Canvas manipulation
+        function drawLines(p) {
+            if (!p.active) return;
+            for (var i in p.closest) {
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(p.closest[i].x, p.closest[i].y);
+                ctx.strokeStyle = 'rgba(156,21,59,' + p.active + ')';
+                ctx.stroke();
+            }
+        }
+
+        function Circle(pos, rad, color) {
+            var _this = this;
+
+            // constructor
+            (function() {
+                _this.pos = pos || null;
+                _this.radius = rad || null;
+                _this.color = color || null;
+            })();
+
+            this.draw = function() {
+                if (!_this.active) return;
+                ctx.beginPath();
+                ctx.arc(_this.pos.x, _this.pos.y, _this.radius, 0, 2 * Math.PI, false);
+                ctx.fillStyle = 'rgba(156,21,59,' + _this.active + ')';
+                ctx.fill();
+            };
+        }
+
+        // Util
+        function getDistance(p1, p2) {
+            return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
+        }
+
+    })();
+
+</script>
 
 </html>
