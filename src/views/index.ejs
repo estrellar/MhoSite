@@ -28,42 +28,45 @@
                 <% include partials/header %>
             </header>
             <!-- section for landing -->
-            <div style="height:500px;">
+            <div style="height:100px;">
             </div>
 
             <div class="body-content">
                 <!-- About -->
-                <div id="about" class="col-xs-11">
+                <div id="about" class="col-xs-11 row">
                     <p class="text-center col-xs-offset-1 col-xs-10">
                         We are a group of freelance Computer Science and Electrical Engineers with a passion for solving problems and building. Our interests have pushed us to develop devices and solutions for a variety of applications and clients. We have built Art pieces, a CubeSat, a Smart Walker and are currently developing a Smart Watch, a robot and biometric clothing. Below you will find a list of links to some of our projects and the application/reason it was developed.
                     </p>
                 </div>
-
-                <div class="projects">
-                    <br/>
-                    <!-- section for projects -->
-                    <% include partials/projects_slanted %>
-                </div>
-
-                <div class="contact col-xs-12">
-
-                    <h2>Contact Us</h2>
-
-                    <form action="">
-                        <input type="text" id="n" autofocus>
-                        <label for="n" class="name"><span class="label-text">Name</span></label>
-
-                        <input type="email" id="e">
-                        <label for="e" class="email"><span class="label-text">Email</span></label>
-
-                        <textarea id="m"></textarea>
-                        <label for="m" class="message"><span class="label-text">Message</span></label>
-
-                        <input type="submit" value="Send message" class="button">
-                    </form>
-                </div>
-
             </div>
+            <div style="height:350px;"></div>
+            
+            <!-- Project Portion -->
+            <div class="projects">
+                <br/>
+                <!-- section for projects -->
+                <% include partials/projects_slanted %>
+            </div>
+            
+            <!-- Contact Us Portion -->
+            <div class="contact col-xs-12">
+
+                <h2>Contact Us</h2>
+
+                <form action="">
+                    <input type="text" id="n" autofocus>
+                    <label for="n" class="name"><span class="label-text">Name</span></label>
+
+                    <input type="email" id="e">
+                    <label for="e" class="email"><span class="label-text">Email</span></label>
+
+                    <textarea id="m"></textarea>
+                    <label for="m" class="message"><span class="label-text">Message</span></label>
+
+                    <input type="submit" value="Send message" class="button">
+                </form>
+            </div>
+
         </div>
     </div>
 

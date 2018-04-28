@@ -6,13 +6,13 @@
     font-family: "Open Sans";
 }
 
-
+/* The code for the whole blocks list*/
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    height: 100vh;
+    height: 90vh;
 
     font-size: 32px;
     font-weight: 800;
@@ -25,9 +25,10 @@
     position: relative;
 }
 
+/* The code for when an individual block opens*/
 .item {
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     opacity: 1;
     display: flex;
     justify-content: center;
