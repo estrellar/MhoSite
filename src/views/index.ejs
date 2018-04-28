@@ -4,19 +4,12 @@
 <head>
     <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
-
     <script src="/lib/jquery/dist/jquery.js"></script>
     <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="https://tympanus.net/Development/AnimatedHeaderBackgrounds/js/TweenLite.min.js"></script>
     <script src="https://tympanus.net/Development/AnimatedHeaderBackgrounds/js/EasePack.min.js"></script>
     <script src="https://tympanus.net/Development/AnimatedHeaderBackgrounds/js/rAF.js"></script>
-    <link rel="stylesheet" href="/public/css/bootstrap.css">
-    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/site.css">
-    <script src="/public/js/bootstrap.js"></script>
-    <script src="/public/js/bootstrap.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Warnes' rel='stylesheet'>
 
 </head>
@@ -35,34 +28,41 @@
                 <% include partials/header %>
             </header>
             <!-- section for landing -->
-            <!--
-            <div id="landing" style="z-index:-1;">
-                <img src="images/tech.png" style="width:1433px;">
+            <div style="height:500px;">
             </div>
--->
+
             <div class="body-content">
                 <!-- About -->
-                <div id="about">
+                <div id="about" class="col-xs-11">
                     <p class="text-center col-xs-offset-1 col-xs-10">
                         We are a group of freelance Computer Science and Electrical Engineers with a passion for solving problems and building. Our interests have pushed us to develop devices and solutions for a variety of applications and clients. We have built Art pieces, a CubeSat, a Smart Walker and are currently developing a Smart Watch, a robot and biometric clothing. Below you will find a list of links to some of our projects and the application/reason it was developed.
                     </p>
                 </div>
 
-                <div id="projects">
+                <div class="projects">
                     <br/>
                     <!-- section for projects -->
-                    <% include partials/projects %>
+                    <% include partials/projects_slanted %>
                 </div>
 
-                <div id="services">
-                    <h2 class="col-xs-12 text-center">Services</h2>
+                <div class="contact col-xs-12">
 
-                    <div class="text-center">
-                        <button class="red btn btn-lg">
-                            Work With Us!
-                        </button>
-                    </div>
+                    <h2>Contact Us</h2>
+
+                    <form action="">
+                        <input type="text" id="n" autofocus>
+                        <label for="n" class="name"><span class="label-text">Name</span></label>
+
+                        <input type="email" id="e">
+                        <label for="e" class="email"><span class="label-text">Email</span></label>
+
+                        <textarea id="m"></textarea>
+                        <label for="m" class="message"><span class="label-text">Message</span></label>
+
+                        <input type="submit" value="Send message" class="button">
+                    </form>
                 </div>
+
             </div>
         </div>
     </div>
