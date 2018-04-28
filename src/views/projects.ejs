@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
+    <!-- endbower -->
+    <!-- bower:js -->
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbower -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="/public/js/bootstrap.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
+    <!-- endinject -->
+</head>
+
+<body>
+
+    <!-- default boostrap navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a href="#" class="navbar-brand"><img src="/images/logo.png" height="20" width="100"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Projects</a></li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!-- section for projects -->
+    <div>
+        <div class="col-sm-12">
+            <% for(var i = 0; i < projects.length; i++){%>
+                <div class="row">
+                    <div class="text-center">
+                        <a href="/projects/<%=i%>">
+                            <h3>
+                                <%=projects[i].name%>
+                            </h3>
+                        </a>
+                    </div>
+                    <div class="text-center">
+                        <p>
+                            <%=projects[i].shortDesc%>
+                        </p>
+                    </div>
+                </div>
+                <%}%>
+        </div>
+    </div>
+
+    <footer>
+
+    </footer>
+
+</body>
+
+</html>

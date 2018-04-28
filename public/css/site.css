@@ -1,0 +1,250 @@
+.centered-a {
+    font-size: 30px;
+}
+
+
+.class {
+    background: none !important;
+    border: none;
+}
+
+.body-content {
+    font-family: sans-serif "Arial";
+    padding-top: 95px;
+    font-size: 20px;
+
+}
+
+.navbar-logo {
+    font-family: 'warnes';
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+}
+
+.landing {
+    width: 100%;
+    height: 100vh;
+}
+
+/*.project-slide .hidden-image {
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+    overflow: hidden;
+}
+
+.project-slide:hover .hidden-image {
+    max-height: 500px;
+    transition: max-height 0.5s ease-in;
+
+}*/
+
+/*below is for background */
+
+.outer-visible .visible {
+    background: rgba(0, 0, 0, 0.8) !important;
+    background-color: #000;
+    z-index: 2;
+}
+
+.outer-visible {
+    background: none;
+    z-index: 1;
+    width: 100vw;
+}
+
+.background {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    background: white;
+    overflow: cv;
+    background-size: cover;
+    background-position: center center;
+    z-index: -3;
+}
+
+nav {
+    background: none;
+}
+
+canvas {
+    z-index: -2;
+}
+
+
+/********Code below for "Contact Us" **************/
+
+.contact {
+    background: black;
+    color: #fff;
+    font: 300 1.25em "Open Sans", sans-serif;
+    margin: 0 1em;
+    max-width: calc(100% - 7em);
+    padding: 2em calc(50% - 16em);
+}
+
+h2 {
+    margin: 0 0 0.25em;
+    font-size: 2em;
+    font-weight: 300;
+}
+
+form {
+    position: relative;
+}
+
+textarea {
+    resize: none;
+}
+
+input,
+textarea {
+    background: transparent;
+    border: 0;
+    box-sizing: border-box;
+    color: inherit;
+    margin: 0.5em 0;
+    padding: 0.5em;
+    width: 100%;
+}
+
+input:focus,
+textarea:focus {
+    outline: 0;
+}
+
+label {
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
+label::before,
+label::after {
+    border-width: 1px;
+    border-style: solid;
+    content: ' ';
+    pointer-events: none;
+    position: absolute;
+    transition: 0.75s;
+    width: 5%;
+    height: 2.25em;
+    z-index: 1;
+}
+
+label::before {
+    border-right: 0;
+}
+
+label::after {
+    border-left: 0;
+    right: 0;
+}
+
+.label-text {
+    background: #181b31;
+    display: block;
+    padding: 0.5em 1em;
+    position: absolute;
+    right: 0;
+    transition: 0.5s;
+}
+
+.label-text::after {
+    border-top: 1px solid;
+    content: ' ';
+    display: block;
+    transition: 0.5s;
+}
+
+input:focus + label::before,
+input:focus + label::after,
+textarea:focus + label::before,
+textarea:focus + label::after {
+    width: 50%;
+}
+
+input:focus + label .label-text,
+textarea:focus + label .label-text {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+}
+
+input:focus + label .label-text::after,
+textarea:focus + label .label-text::after {
+    -webkit-transform: translate3d(-100%, -0.75em, 0);
+    transform: translate3d(-100%, -0.75em, 0);
+    width: 1em;
+}
+
+#n {
+    color: #09805c;
+}
+
+#e {
+    color: #07c83e;
+}
+
+#n:focus + label::before,
+#n:focus + label::after {
+    border-color: #09805c;
+}
+
+#e:focus + label::before,
+#e:focus + label::after {
+    border-color: #07c83e;
+}
+
+.name {
+    color: #09805c;
+    top: 0.5em;
+}
+
+.name::before,
+.name::after {
+    border-color: rgba(9, 128, 92, 0.3);
+    top: 0;
+}
+
+.email {
+    color: #07c83e;
+    top: 3.85em;
+}
+
+.email::before,
+.email::after {
+    border-color: rgba(7, 200, 62, 0.3);
+    top: 0;
+}
+
+#m {
+    height: 8em;
+}
+
+.message {
+    color: #575b8e;
+    top: 7.25em;
+}
+
+.message::before,
+.message::after {
+    height: 8em;
+}
+
+.button {
+    color: #e9165d;
+    border: 1px solid;
+    position: relative;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: rgba(233, 22, 93, 0.2);
+}
+
+@media (min-width: 660px) and (max-width: 856px) {
+    body {
+        max-width: calc(100% - 12em);
+    }
+}

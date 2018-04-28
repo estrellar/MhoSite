@@ -1,0 +1,21 @@
+<!-- section for projects -->
+
+<div>
+    <div class="col-sm-12 projects">
+        <% for(var i = 0; i < projects.length; i++){%>
+            <div>
+                <div class="text-center">
+                    <a class="centered-a" href="/projects/<%=i%>">
+                        <%=projects[i].name%>
+
+                    </a>
+                </div>
+                <div class="text-center">
+                    <p class="row">
+                        <%=projects[i].shortDesc%>
+                    </p>
+                </div>
+            </div>
+            <%}%>
+    </div>
+</div>
