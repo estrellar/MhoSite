@@ -12,7 +12,6 @@
     font-family: sans-serif "Arial";
     padding-top: 95px;
     font-size: 20px;
-
 }
 
 .navbar-logo {
@@ -76,12 +75,16 @@ canvas {
 /********Code below for "Contact Us" **************/
 
 .contact {
-    background: black;
+    background: transparent;
     color: #fff;
     font: 300 1.25em "Open Sans", sans-serif;
     margin: 0 1em;
     max-width: calc(100% - 7em);
     padding: 2em calc(50% - 16em);
+}
+
+.contact-header {
+    color: black;
 }
 
 h2 {
@@ -103,7 +106,7 @@ textarea {
     background: transparent;
     border: 0;
     box-sizing: border-box;
-    color: inherit;
+    color: darkred;
     margin: 0.5em 0;
     padding: 0.5em;
     width: 100%;
@@ -122,7 +125,7 @@ label {
 
 label::before,
 label::after {
-    border-width: 1px;
+    border-width: 2px;
     border-style: solid;
     content: ' ';
     pointer-events: none;
@@ -143,7 +146,7 @@ label::after {
 }
 
 .label-text {
-    background: #181b31;
+    background: transparent;
     display: block;
     padding: 0.5em 1em;
     position: absolute;
@@ -179,42 +182,42 @@ textarea:focus + label .label-text::after {
 }
 
 #n {
-    color: #09805c;
+    color: darkred;
 }
 
 #e {
-    color: #07c83e;
+    color: darkred;
 }
 
 #n:focus + label::before,
 #n:focus + label::after {
-    border-color: #09805c;
+    border-color: darkred;
 }
 
 #e:focus + label::before,
 #e:focus + label::after {
-    border-color: #07c83e;
+    border-color: darkred;
 }
 
 .name {
-    color: #09805c;
+    color: darkred;
     top: 0.5em;
 }
 
 .name::before,
 .name::after {
-    border-color: rgba(9, 128, 92, 0.3);
+    border-color: darkred;
     top: 0;
 }
 
 .email {
-    color: #07c83e;
+    color: darkred;
     top: 3.85em;
 }
 
 .email::before,
 .email::after {
-    border-color: rgba(7, 200, 62, 0.3);
+    border-color: darkred;
     top: 0;
 }
 
@@ -223,7 +226,7 @@ textarea:focus + label .label-text::after {
 }
 
 .message {
-    color: #575b8e;
+    color: darkred;
     top: 7.25em;
 }
 
@@ -233,14 +236,15 @@ textarea:focus + label .label-text::after {
 }
 
 .button {
-    color: #e9165d;
+    color: darkred;
     border: 1px solid;
     position: relative;
     transition: 0.3s;
 }
 
 .button:hover {
-    background: rgba(233, 22, 93, 0.2);
+    background: darkred;
+    color: white;
 }
 
 @media (min-width: 660px) and (max-width: 856px) {
