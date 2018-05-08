@@ -9,7 +9,11 @@
     <script src="https://tympanus.net/Development/AnimatedHeaderBackgrounds/js/TweenLite.min.js"></script>
     <script src="https://tympanus.net/Development/AnimatedHeaderBackgrounds/js/EasePack.min.js"></script>
     <script src="https://tympanus.net/Development/AnimatedHeaderBackgrounds/js/rAF.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
+    <link rel="stylesheet" href="/css/ionicons.css">
     <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/services.css">
+
     <link href='https://fonts.googleapis.com/css?family=Warnes' rel='stylesheet'>
 
 </head>
@@ -31,29 +35,36 @@
             <div style="height:100px;">
             </div>
 
-            <div class="body-content">
+            <div id="about" class="body-content">
                 <!-- About -->
-                <div id="about" class="col-xs-11 row">
+                <div class="col-xs-12 row">
                     <p class="text-center col-xs-offset-1 col-xs-10">
-                        We are a group of freelance Computer Science and Electrical Engineers with a passion for solving problems and building. Our interests have pushed us to develop devices and solutions for a variety of applications and clients. We have built Art pieces, a CubeSat, a Smart Walker and are currently developing a Smart Watch, a robot and biometric clothing. Below you will find a list of links to some of our projects and the application/reason it was developed.
+                        We are a group of freelance Computer Science and Electrical Engineers with a passion for solving problems and building. Our interests have pushed us to develop devices and solutions for a variety of applications and clients. We have built Art pieces, a CubeSat, a Smart Walker and are currently developing a Smart Watch, a robot and biometric clothing. Below you will find a list of our projects.
                     </p>
                 </div>
             </div>
             <div style="height:350px;"></div>
 
             <!-- Project Portion -->
-            <div class="projects">
+            <div class="projects hidden-xs">
+                <!--div to show on PC -->
                 <br/>
                 <!-- section for projects -->
                 <% include partials/projects_slanted %>
+            </div>
+
+            <div class="Services row">
+                <% include partials/services%>
             </div>
 
             <!-- Contact Us Portion -->
             <div class="contact col-xs-12">
 
                 <h2 class="text-center contact-header">Contact Us</h2>
+                <p class="text-center" style="color:black;">Any questions? Do you have a project in mind?</p>
+                <p> Maybe you think David Story is kawaii &gt;.&lt;</p>
 
-                <form action="">
+                <form method="post" id="contact-form">
                     <input type="text" id="n" autofocus>
                     <label for="n" class="name"><span class="label-text">Name</span></label>
 
@@ -63,7 +74,7 @@
                     <textarea id="m"></textarea>
                     <label for="m" class="message"><span class="label-text">Message</span></label>
 
-                    <input type="submit" value="Send message" class="button">
+                    <input id="submit-email" value="Send Message" class="button text-center" />
                 </form>
             </div>
 
@@ -73,6 +84,27 @@
 </body>
 
 <script type="text/javascript">
+    $('#submit-email').on('click', function(event) {
+        var formdata = {
+            "name": $('input[id=n]').val(),
+            "email": $('input[id=e]').val(),
+            "message": $('textarea[id=m]').val()
+        };
+        if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formdata.email)) || formdata.name.length == 0) {
+            alert("You have entered an invalid email address or name!")
+            return;
+        }
+        $.ajax({
+            url: '/',
+            data: JSON.stringify(formdata),
+            cache: false,
+            dataType: "xml/html/script/json", // expected format for response
+            contentType: "application/json", // send as JSON
+            type: 'POST'
+        });
+        console.log(JSON.stringify(formdata));
+    });
+
     (function() {
 
         var width, height, largeHeader, canvas, ctx, points, target, animateHeader = true;

@@ -1,14 +1,57 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,800');
+.clock {
+    font-family: Raleway;
+    font-weight: bold;
+    font-size: 28px;
+    text-align: center;
+    color: #f9f9f9;
+    position: absolute;
+    top: 242px;
+    left: 180px;
+    width: 162px;
+}
+
+.rings {
+    position: relative;
+    width: 500px;
+    margin: 100px auto;
+}
+
+.rings .h {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.rings .m {
+    position: absolute;
+    left: 85px;
+    top: 85px;
+}
+
+.rings .s {
+    position: absolute;
+    left: 163px;
+    top: 163px;
+}
+
+.demo {
+    background: #222;
+    height: 700px;
+    width: 80%;
+}
+
+.watch-input {
+    display: none;
+}
 
 .projects {
     overflow: hidden;
     position: relative;
-    font-family: "Open Sans";
 }
 
 /* The code for the whole blocks list*/
 
-.container {
+.projects-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -100,30 +143,30 @@
     color: #e67e22;
 }
 
-.container:active {
+.projects-container:hover {
     transform: skew(0);
 }
 
-.container:active .item-link {
+.projects-container:hover .item-link {
     transform: skew(0);
     transition-delay: 0s;
 }
 
-.item:active .item-link {
+.item:hover .item-link {
     opacity: 0;
 }
 
-.item:active div {
+.item:hover div {
     opacity: 1;
     transition-delay: 0.6s;
 }
 
-.container:active > .item:not(:active) {
+.projects-container:hover > .item:not(:hover) {
     width: 2%;
 }
 
-.container:active > .item:not(:active) > .item-link,
-.container:active > .item:not(:active) div {
+.projects-container:hover > .item:not(:hover) > .item-link,
+.projects-container:hover > .item:not(:hover) div {
     opacity: 0;
 }
 
