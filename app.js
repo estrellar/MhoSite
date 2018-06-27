@@ -57,24 +57,33 @@ app.post('/', function (req, res) {
         });
         var mailOptions = {
             from: auth.user,
-            to: auth.user,
-            cc: "david.house@mhosciences.com,rxestrella@gmail.com",
+            to: "rxestrella@gmail.com",
+            cc: "rxestrella@gmail.com",
             subject: req.body.name,
             text: req.body.message + '\nSent from: ' + req.body.email
         };
         transporter.sendMail(mailOptions, function (error, info) {
             if (error)
                 console.log(error);
-            else
+            else {
                 console.log('email sent:' + info.response);
+                res.writeHead(200, {
+                    'Content-Type': 'text/html'
+                });
+                console.log('about to call render');
+                res.end('{"success" : "Updated Successfully", "status" : 200}');
+            }
         });
     } catch (error) {
         console.log('ERROR: ' + error.message);
         res.render('emailError');
     }
-    res.render('index', {
-        projects: projects
-    });
+    //    console.log('about to call render');
+    //    res.send(req.body);
+    //    res.render('index', {
+    //        projects: projects
+    //    });
+    // res.end();
 });
 
 
